@@ -11,8 +11,8 @@ if (isset($_POST['fio'])) {
 }
 
 if (isset($_POST['phone'])) {
-    if (empty($_POST['phone'])) {
-        $arguments['phone'] = "phone is empty";
+    if (empty($_POST['phone']) or !preg_match("/^\+\d{10,13}/",$_POST['phone'])) {
+        $arguments['phone'] = "phone is incorrect";
         $arguments['errors'] = true;
     }
 } else {
@@ -20,7 +20,7 @@ if (isset($_POST['phone'])) {
     $arguments['phone'] = 'not found phone field';
 }
 
-if (isset($_POST['email'])) {
+if (isset($_POST['email']) or !preg_match("/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/",$_POST['email'])) {
     if (preg_match('/@gmail.com/',$_POST['email'])) {
         $arguments['email'] = "email is banned";
         $arguments['errors'] = true;

@@ -24,7 +24,7 @@
     </div>
     <div class="form-group">
         <label for="phone">телефон</label>
-        <input type="text"<?if($_GET['phone']) {echo "class='form-control alert alert-danger' value={$_GET['phone']}</p>";}else {echo "class='form-control'";}?>  name="phone" class="form-control" id="phone" placeholder="phone">
+        <input name="phone" type="text" class="form-control" id="phone" placeholder="phone" <?if($_GET['phone']) {echo "class='form-control alert alert-danger' value={$_GET['phone']}</p>";}else {echo "class='form-control'";}?>>
     </div>
     <div class="custom-file">
         <input type="file" name="file" class="custom-file-input" id="file">
